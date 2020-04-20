@@ -1,0 +1,72 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: sample-mysql
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=sampledb
+      - MYSQL_USER=sample
+      - MYSQL_PASSWORD=secret
+    ports:
+      - "8086:3306"
+    networks:
+      - sample
+  adminer:
+    container_name: sample-adminer
+    image: adminer
+    ports:
+      - 8085:8080
+    environment:
+      ADMINER_DEFAULT_SERVER: mysql
+    networks:
+      - sample
+  redis:
+    container_name: sample-redis
+    image: redis:alpine
+    ports:
+      - "8084:6379"
+    command: >
+      sh -c "/usr/local/bin/redis-server"
+    networks:
+      - sample
+  redis-commander:
+    container_name: sample-redis-commander
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    environment:
+      - REDIS_HOSTS=redis
+    ports:
+      - 8083:8081
+    networks:
+      - sample
+  back:
+    container_name: sample-backend
+    image: node:10-alpine
+    working_dir: /usr/src/back-app
+    volumes:
+      - ./back:/usr/src/back-app
+    command: >
+      sh -c "npm install && npm run-script start"
+    depends_on:
+      - redis
+    ports:
+      - "8082:3000"
+    networks:
+      - sample
+  front:
+    container_name: sample-frontend
+    image: node:10-alpine
+    working_dir: /usr/src/front
+    volumes:
+      - ./front:/usr/src/front
+    command: >
+      sh -c "npm install && npm run-script start"
+    ports:
+      - "8081:4200"
+    networks:
+      - sample
+networks: 
+  sample:
+    driver: bridge
