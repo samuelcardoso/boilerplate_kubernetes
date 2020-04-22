@@ -59,7 +59,7 @@
     "html-to-xlsx": "^0.6.8",
     "joi": "^10.2.2",
     "jwt-simple": "^0.5.1",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.13",
     "multer": "^1.3.0",
     "mysql": "latest",
     "node-jose": "^0.10.0",
