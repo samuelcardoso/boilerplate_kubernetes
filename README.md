@@ -1,8 +1,10 @@
-# Links
+# Node
+
+## Links
 
 https://learnk8s.io/nodejs-kubernetes-guide
 
-# Commands
+## Commands
 
 npm install
 node index.js
@@ -18,6 +20,8 @@ docker ps -a
 docker login
 docker tag sample-js samuelparacontato/sample-js:1.0.0
 docker push samuelparacontato/sample-js:1.0.0
+
+# Kubernetes
 
 minikube start --memory=16384 --cpus=4
 minikube dashboard

@@ -15,7 +15,8 @@ kind: Deployment
 metadata:
   name: sample-js
 spec:
-  replicas: 2
+  #nodeName: foo-node (https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-join/)
+  replicas: 4
   selector:
     matchLabels:
       app: sample-js
