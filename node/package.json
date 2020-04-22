@@ -10,7 +10,7 @@
   "typings": "./dist/sample-backend.d.ts",
   "scripts": {
     "build": "npm run clean && tsc && npm run swagger",
-    "start:docker": "pm2-docker ./process.yml",
+    "start:docker": "npm run build && pm2-docker ./process.yml",
     "start": "npm run build && node dist/app.js",
     "clean": "rimraf dist",
     "lint": "tslint ./src/**/*.ts ./test/**/*.ts",
