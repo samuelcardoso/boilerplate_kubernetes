@@ -1,0 +1,19 @@
+{
+    "swagger": {
+        "yaml": false,
+        "outputDirectory": "./dist/admin/api",
+        "entryFile": "./src/endpoint/endpoints.ts",
+        "name": "B2E Backend RH API",
+        "description": "API para o sistema B2E RH",
+        "basePath": "/",
+        "securityDefinitions": {
+            "b2eSecurity": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            }
+        },
+        "produces": ["application/json"],
+        "version": "0.0.1"
+    }
+}

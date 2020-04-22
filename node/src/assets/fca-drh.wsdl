@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s3="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoCadastroEmpenho" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoCadastroEmpregado" xmlns:s4="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoEmpenho" xmlns:s6="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoEmpregadoCPF" xmlns:s7="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoCadastroEmpresa" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s2="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoEmpresa" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s5="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoEmpregado" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoCadastroEmpregado" />
+      <s:import namespace="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoEmpresa" />
+      <s:import namespace="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoCadastroEmpenho" />
+      <s:import namespace="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoEmpenho" />
+      <s:import namespace="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoEmpregado" />
+      <s:import namespace="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoEmpregadoCPF" />
+      <s:import namespace="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoCadastroEmpresa" />
+      <s:element name="incluirEmpregado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numMatricula" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomEmpregado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSexo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEstadoCivil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dscEndereco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numEndereco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cplEndereco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dscBairro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codCidade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codCep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numDDDTelefone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numTelefone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datNascimento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codSituacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datInicioSituacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datAdmissao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numLotacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codUniOrg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numCNPJUniOrg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codCargo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dscCargo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datInicioNivel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodDiretoria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codCentroCusto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numRamal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numRG" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datEmissaoRG" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dscOrgEmissorRG" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sigEstEmissorRG" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numCarHabilitacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipCarHabilitacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datValCarHabilitacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numCPF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dscEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dscCatProfissional" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codNivel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codEquipe" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codTipoSalario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="incluirEmpregadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:empregados" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarEmpresas">
+        <s:complexType />
+      </s:element>
+      <s:element name="consultarEmpresasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s2:empresas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="incluirEmpenho">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpenho" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomEmpregado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numMatricula" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="cpfEmpregado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="codBeneficio" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="datPedido" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codCliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numPedido" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="incluirEmpenhoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s3:empenho" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="excluirEmpenho">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpenho" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="excluirEmpenhoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s3:empenho" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarEmpenhos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cpfEmpregado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodEmpenho" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarEmpenhosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s4:empenhos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarEmpregado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numMatricula" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="cpfEmpregado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarEmpregadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s5:usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarEmpregadoCPF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cpfEmpregado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarEmpregadoCPFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s6:usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="incluirEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codEmpresa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomRazaoSocial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomFantasia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numCNPJ" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sigEmpresa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codEmpresaRonda" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFlagParticipaSorteio" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="incluirEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s7:empresa" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoCadastroEmpregado">
+      <s:element name="empregados" type="s1:ResultadoCadastroEmpregado" />
+      <s:complexType name="ResultadoCadastroEmpregado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mensagem" type="s1:Mensagem" />
+        </s:sequence>
+        <s:attribute name="sucesso" type="s:boolean" use="required" />
+      </s:complexType>
+      <s:complexType name="Mensagem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="mensagem" type="s1:ItemMensagem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemMensagem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoEmpresa">
+      <s:element name="empresas" type="s2:ResultadoEmpresa" />
+      <s:complexType name="ResultadoEmpresa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mensagens" type="s2:Mensagem" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="empresa" type="s2:Empresa" />
+        </s:sequence>
+        <s:attribute name="sucesso" type="s:boolean" use="required" />
+      </s:complexType>
+      <s:complexType name="Mensagem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="mensagem" type="s2:ItemMensagem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemMensagem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Empresa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="razaosocial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cnpj" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sigla" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="codronda" type="s:int" />
+        </s:sequence>
+        <s:attribute name="id" type="s:int" use="required" />
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoCadastroEmpenho">
+      <s:element name="empenho" type="s3:ResultadoCadastroEmpenho" />
+      <s:complexType name="ResultadoCadastroEmpenho">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mensagens" type="s3:Mensagem" />
+        </s:sequence>
+        <s:attribute name="sucesso" type="s:boolean" use="required" />
+      </s:complexType>
+      <s:complexType name="Mensagem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="mensagem" type="s3:ItemMensagem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemMensagem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoEmpenho">
+      <s:element name="empenhos" type="s4:ResultadoEmpenho" />
+      <s:complexType name="ResultadoEmpenho">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="beneficio" type="s4:BeneficioEmpenhos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BeneficioEmpenhos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="codEmpenho" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nomEmpregado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="numMatricula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codEmpresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cpfEmpregado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codBeneficio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="datInclusaoEmpenho" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="datPedido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codCliente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="numPedido" type="s:string" />
+        </s:sequence>
+        <s:attribute name="id" type="s:int" use="required" />
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoEmpregado">
+      <s:element name="usuario" type="s5:ResultadoEmpregado" />
+      <s:complexType name="ResultadoEmpregado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mensagens" type="s5:Mensagem" />
+          <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="categoriafuncional" type="s5:CategoriaFuncional" />
+          <s:element minOccurs="1" maxOccurs="1" name="situacaocadastral" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="impedimentos" type="s5:Impedimento" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficios" type="s5:Beneficio" />
+          <s:element minOccurs="0" maxOccurs="1" name="penalidades" type="s5:Penalidade" />
+          <s:element minOccurs="0" maxOccurs="1" name="dataadmissao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="datanascimento" type="s:string" />
+        </s:sequence>
+        <s:attribute name="sucesso" type="s:boolean" use="required" />
+        <s:attribute name="cpf" type="s:string" />
+        <s:attribute name="matricula" type="s:int" use="required" />
+        <s:attribute name="empresa" type="s:int" use="required" />
+      </s:complexType>
+      <s:complexType name="Mensagem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="mensagem" type="s5:ItemMensagem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemMensagem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CategoriaFuncional">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+        </s:sequence>
+        <s:attribute name="id" type="s:int" use="required" />
+      </s:complexType>
+      <s:complexType name="Impedimento">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="impedimento" type="s5:ItemImpedimento" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemImpedimento">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+        </s:sequence>
+        <s:attribute name="id" type="s:int" use="required" />
+      </s:complexType>
+      <s:complexType name="Beneficio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="beneficio" type="s5:ItemBeneficio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemBeneficio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dataultimacompra" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dataultimopedido" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="carenciaadmissao" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="carenciaultimacompra" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="bloqueiopedido" type="s:string" />
+        </s:sequence>
+        <s:attribute name="id" type="s:int" use="required" />
+      </s:complexType>
+      <s:complexType name="Penalidade">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="penalidade" type="s5:ItemPenalidade" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemPenalidade">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+        </s:sequence>
+        <s:attribute name="id" type="s:string" />
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoEmpregadoCPF">
+      <s:element name="usuario" type="s6:ResultadoEmpregadoCPF" />
+      <s:complexType name="ResultadoEmpregadoCPF">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mensagens" type="s6:Mensagem" />
+          <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="matriculaemp" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="dataadmissao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="categoriafuncional" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="situacaocadastral" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="codempresa" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nomeempresa" type="s:string" />
+        </s:sequence>
+        <s:attribute name="sucesso" type="s:boolean" use="required" />
+        <s:attribute name="cpf" type="s:string" />
+        <s:attribute name="matricula" type="s:int" use="required" />
+        <s:attribute name="empresa" type="s:int" use="required" />
+      </s:complexType>
+      <s:complexType name="Mensagem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="mensagem" type="s6:ItemMensagem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemMensagem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:gvs:GlobalValue.Clientes.GrupoFiat.FIASA.FIATDRH.Schemas.ResultadoCadastroEmpresa">
+      <s:element name="empresa" type="s7:ResultadoCadastroEmpresa" />
+      <s:complexType name="ResultadoCadastroEmpresa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mensagens" type="s7:Mensagem" />
+        </s:sequence>
+        <s:attribute name="sucesso" type="s:boolean" use="required" />
+      </s:complexType>
+      <s:complexType name="Mensagem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="mensagem" type="s7:ItemMensagem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemMensagem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="incluirEmpregadoSoapIn">
+    <wsdl:part name="parameters" element="tns:incluirEmpregado" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpregadoSoapOut">
+    <wsdl:part name="parameters" element="tns:incluirEmpregadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpresasSoapIn">
+    <wsdl:part name="parameters" element="tns:consultarEmpresas" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpresasSoapOut">
+    <wsdl:part name="parameters" element="tns:consultarEmpresasResponse" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpenhoSoapIn">
+    <wsdl:part name="parameters" element="tns:incluirEmpenho" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpenhoSoapOut">
+    <wsdl:part name="parameters" element="tns:incluirEmpenhoResponse" />
+  </wsdl:message>
+  <wsdl:message name="excluirEmpenhoSoapIn">
+    <wsdl:part name="parameters" element="tns:excluirEmpenho" />
+  </wsdl:message>
+  <wsdl:message name="excluirEmpenhoSoapOut">
+    <wsdl:part name="parameters" element="tns:excluirEmpenhoResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpenhosSoapIn">
+    <wsdl:part name="parameters" element="tns:consultarEmpenhos" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpenhosSoapOut">
+    <wsdl:part name="parameters" element="tns:consultarEmpenhosResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpregadoSoapIn">
+    <wsdl:part name="parameters" element="tns:consultarEmpregado" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpregadoSoapOut">
+    <wsdl:part name="parameters" element="tns:consultarEmpregadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpregadoCPFSoapIn">
+    <wsdl:part name="parameters" element="tns:consultarEmpregadoCPF" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpregadoCPFSoapOut">
+    <wsdl:part name="parameters" element="tns:consultarEmpregadoCPFResponse" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:incluirEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:incluirEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpregadoHttpGetIn">
+    <wsdl:part name="codEmpresa" type="s:string" />
+    <wsdl:part name="numMatricula" type="s:string" />
+    <wsdl:part name="nomEmpregado" type="s:string" />
+    <wsdl:part name="strSexo" type="s:string" />
+    <wsdl:part name="strEstadoCivil" type="s:string" />
+    <wsdl:part name="dscEndereco" type="s:string" />
+    <wsdl:part name="numEndereco" type="s:string" />
+    <wsdl:part name="cplEndereco" type="s:string" />
+    <wsdl:part name="dscBairro" type="s:string" />
+    <wsdl:part name="codCidade" type="s:string" />
+    <wsdl:part name="codCep" type="s:string" />
+    <wsdl:part name="numDDDTelefone" type="s:string" />
+    <wsdl:part name="numTelefone" type="s:string" />
+    <wsdl:part name="datNascimento" type="s:string" />
+    <wsdl:part name="codSituacao" type="s:string" />
+    <wsdl:part name="datInicioSituacao" type="s:string" />
+    <wsdl:part name="datAdmissao" type="s:string" />
+    <wsdl:part name="numLotacao" type="s:string" />
+    <wsdl:part name="codUniOrg" type="s:string" />
+    <wsdl:part name="numCNPJUniOrg" type="s:string" />
+    <wsdl:part name="codCargo" type="s:string" />
+    <wsdl:part name="dscCargo" type="s:string" />
+    <wsdl:part name="datInicioNivel" type="s:string" />
+    <wsdl:part name="strCodDiretoria" type="s:string" />
+    <wsdl:part name="codCentroCusto" type="s:string" />
+    <wsdl:part name="numRamal" type="s:string" />
+    <wsdl:part name="numRG" type="s:string" />
+    <wsdl:part name="datEmissaoRG" type="s:string" />
+    <wsdl:part name="dscOrgEmissorRG" type="s:string" />
+    <wsdl:part name="sigEstEmissorRG" type="s:string" />
+    <wsdl:part name="numCarHabilitacao" type="s:string" />
+    <wsdl:part name="tipCarHabilitacao" type="s:string" />
+    <wsdl:part name="datValCarHabilitacao" type="s:string" />
+    <wsdl:part name="numCPF" type="s:string" />
+    <wsdl:part name="dscEmail" type="s:string" />
+    <wsdl:part name="dscCatProfissional" type="s:string" />
+    <wsdl:part name="codNivel" type="s:string" />
+    <wsdl:part name="codEquipe" type="s:string" />
+    <wsdl:part name="codTipoSalario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpregadoHttpGetOut">
+    <wsdl:part name="Body" element="s1:empregados" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpresasHttpGetIn" />
+  <wsdl:message name="consultarEmpresasHttpGetOut">
+    <wsdl:part name="Body" element="s2:empresas" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpenhoHttpGetIn">
+    <wsdl:part name="codEmpenho" type="s:string" />
+    <wsdl:part name="nomEmpregado" type="s:string" />
+    <wsdl:part name="numMatricula" type="s:string" />
+    <wsdl:part name="codEmpresa" type="s:string" />
+    <wsdl:part name="cpfEmpregado" type="s:string" />
+    <wsdl:part name="codBeneficio" type="s:string" />
+    <wsdl:part name="datPedido" type="s:string" />
+    <wsdl:part name="codCliente" type="s:string" />
+    <wsdl:part name="numPedido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpenhoHttpGetOut">
+    <wsdl:part name="Body" element="s3:empenho" />
+  </wsdl:message>
+  <wsdl:message name="excluirEmpenhoHttpGetIn">
+    <wsdl:part name="codEmpenho" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="excluirEmpenhoHttpGetOut">
+    <wsdl:part name="Body" element="s3:empenho" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpenhosHttpGetIn">
+    <wsdl:part name="cpfEmpregado" type="s:string" />
+    <wsdl:part name="CodEmpenho" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpenhosHttpGetOut">
+    <wsdl:part name="Body" element="s4:empenhos" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpregadoHttpGetIn">
+    <wsdl:part name="codEmpresa" type="s:string" />
+    <wsdl:part name="numMatricula" type="s:string" />
+    <wsdl:part name="cpfEmpregado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpregadoHttpGetOut">
+    <wsdl:part name="Body" element="s5:usuario" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpregadoCPFHttpGetIn">
+    <wsdl:part name="cpfEmpregado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpregadoCPFHttpGetOut">
+    <wsdl:part name="Body" element="s6:usuario" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpresaHttpGetIn">
+    <wsdl:part name="codEmpresa" type="s:string" />
+    <wsdl:part name="nomRazaoSocial" type="s:string" />
+    <wsdl:part name="nomFantasia" type="s:string" />
+    <wsdl:part name="numCNPJ" type="s:string" />
+    <wsdl:part name="sigEmpresa" type="s:string" />
+    <wsdl:part name="codEmpresaRonda" type="s:string" />
+    <wsdl:part name="strFlagParticipaSorteio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpresaHttpGetOut">
+    <wsdl:part name="Body" element="s7:empresa" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpregadoHttpPostIn">
+    <wsdl:part name="codEmpresa" type="s:string" />
+    <wsdl:part name="numMatricula" type="s:string" />
+    <wsdl:part name="nomEmpregado" type="s:string" />
+    <wsdl:part name="strSexo" type="s:string" />
+    <wsdl:part name="strEstadoCivil" type="s:string" />
+    <wsdl:part name="dscEndereco" type="s:string" />
+    <wsdl:part name="numEndereco" type="s:string" />
+    <wsdl:part name="cplEndereco" type="s:string" />
+    <wsdl:part name="dscBairro" type="s:string" />
+    <wsdl:part name="codCidade" type="s:string" />
+    <wsdl:part name="codCep" type="s:string" />
+    <wsdl:part name="numDDDTelefone" type="s:string" />
+    <wsdl:part name="numTelefone" type="s:string" />
+    <wsdl:part name="datNascimento" type="s:string" />
+    <wsdl:part name="codSituacao" type="s:string" />
+    <wsdl:part name="datInicioSituacao" type="s:string" />
+    <wsdl:part name="datAdmissao" type="s:string" />
+    <wsdl:part name="numLotacao" type="s:string" />
+    <wsdl:part name="codUniOrg" type="s:string" />
+    <wsdl:part name="numCNPJUniOrg" type="s:string" />
+    <wsdl:part name="codCargo" type="s:string" />
+    <wsdl:part name="dscCargo" type="s:string" />
+    <wsdl:part name="datInicioNivel" type="s:string" />
+    <wsdl:part name="strCodDiretoria" type="s:string" />
+    <wsdl:part name="codCentroCusto" type="s:string" />
+    <wsdl:part name="numRamal" type="s:string" />
+    <wsdl:part name="numRG" type="s:string" />
+    <wsdl:part name="datEmissaoRG" type="s:string" />
+    <wsdl:part name="dscOrgEmissorRG" type="s:string" />
+    <wsdl:part name="sigEstEmissorRG" type="s:string" />
+    <wsdl:part name="numCarHabilitacao" type="s:string" />
+    <wsdl:part name="tipCarHabilitacao" type="s:string" />
+    <wsdl:part name="datValCarHabilitacao" type="s:string" />
+    <wsdl:part name="numCPF" type="s:string" />
+    <wsdl:part name="dscEmail" type="s:string" />
+    <wsdl:part name="dscCatProfissional" type="s:string" />
+    <wsdl:part name="codNivel" type="s:string" />
+    <wsdl:part name="codEquipe" type="s:string" />
+    <wsdl:part name="codTipoSalario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpregadoHttpPostOut">
+    <wsdl:part name="Body" element="s1:empregados" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpresasHttpPostIn" />
+  <wsdl:message name="consultarEmpresasHttpPostOut">
+    <wsdl:part name="Body" element="s2:empresas" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpenhoHttpPostIn">
+    <wsdl:part name="codEmpenho" type="s:string" />
+    <wsdl:part name="nomEmpregado" type="s:string" />
+    <wsdl:part name="numMatricula" type="s:string" />
+    <wsdl:part name="codEmpresa" type="s:string" />
+    <wsdl:part name="cpfEmpregado" type="s:string" />
+    <wsdl:part name="codBeneficio" type="s:string" />
+    <wsdl:part name="datPedido" type="s:string" />
+    <wsdl:part name="codCliente" type="s:string" />
+    <wsdl:part name="numPedido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpenhoHttpPostOut">
+    <wsdl:part name="Body" element="s3:empenho" />
+  </wsdl:message>
+  <wsdl:message name="excluirEmpenhoHttpPostIn">
+    <wsdl:part name="codEmpenho" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="excluirEmpenhoHttpPostOut">
+    <wsdl:part name="Body" element="s3:empenho" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpenhosHttpPostIn">
+    <wsdl:part name="cpfEmpregado" type="s:string" />
+    <wsdl:part name="CodEmpenho" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpenhosHttpPostOut">
+    <wsdl:part name="Body" element="s4:empenhos" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpregadoHttpPostIn">
+    <wsdl:part name="codEmpresa" type="s:string" />
+    <wsdl:part name="numMatricula" type="s:string" />
+    <wsdl:part name="cpfEmpregado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpregadoHttpPostOut">
+    <wsdl:part name="Body" element="s5:usuario" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpregadoCPFHttpPostIn">
+    <wsdl:part name="cpfEmpregado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarEmpregadoCPFHttpPostOut">
+    <wsdl:part name="Body" element="s6:usuario" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpresaHttpPostIn">
+    <wsdl:part name="codEmpresa" type="s:string" />
+    <wsdl:part name="nomRazaoSocial" type="s:string" />
+    <wsdl:part name="nomFantasia" type="s:string" />
+    <wsdl:part name="numCNPJ" type="s:string" />
+    <wsdl:part name="sigEmpresa" type="s:string" />
+    <wsdl:part name="codEmpresaRonda" type="s:string" />
+    <wsdl:part name="strFlagParticipaSorteio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirEmpresaHttpPostOut">
+    <wsdl:part name="Body" element="s7:empresa" />
+  </wsdl:message>
+  <wsdl:portType name="FIATDRHSoap">
+    <wsdl:operation name="incluirEmpregado">
+      <wsdl:input message="tns:incluirEmpregadoSoapIn" />
+      <wsdl:output message="tns:incluirEmpregadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpresas">
+      <wsdl:input message="tns:consultarEmpresasSoapIn" />
+      <wsdl:output message="tns:consultarEmpresasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirEmpenho">
+      <wsdl:input message="tns:incluirEmpenhoSoapIn" />
+      <wsdl:output message="tns:incluirEmpenhoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="excluirEmpenho">
+      <wsdl:input message="tns:excluirEmpenhoSoapIn" />
+      <wsdl:output message="tns:excluirEmpenhoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpenhos">
+      <wsdl:input message="tns:consultarEmpenhosSoapIn" />
+      <wsdl:output message="tns:consultarEmpenhosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpregado">
+      <wsdl:input message="tns:consultarEmpregadoSoapIn" />
+      <wsdl:output message="tns:consultarEmpregadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpregadoCPF">
+      <wsdl:input message="tns:consultarEmpregadoCPFSoapIn" />
+      <wsdl:output message="tns:consultarEmpregadoCPFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirEmpresa">
+      <wsdl:input message="tns:incluirEmpresaSoapIn" />
+      <wsdl:output message="tns:incluirEmpresaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="FIATDRHHttpGet">
+    <wsdl:operation name="incluirEmpregado">
+      <wsdl:input message="tns:incluirEmpregadoHttpGetIn" />
+      <wsdl:output message="tns:incluirEmpregadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpresas">
+      <wsdl:input message="tns:consultarEmpresasHttpGetIn" />
+      <wsdl:output message="tns:consultarEmpresasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirEmpenho">
+      <wsdl:input message="tns:incluirEmpenhoHttpGetIn" />
+      <wsdl:output message="tns:incluirEmpenhoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="excluirEmpenho">
+      <wsdl:input message="tns:excluirEmpenhoHttpGetIn" />
+      <wsdl:output message="tns:excluirEmpenhoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpenhos">
+      <wsdl:input message="tns:consultarEmpenhosHttpGetIn" />
+      <wsdl:output message="tns:consultarEmpenhosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpregado">
+      <wsdl:input message="tns:consultarEmpregadoHttpGetIn" />
+      <wsdl:output message="tns:consultarEmpregadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpregadoCPF">
+      <wsdl:input message="tns:consultarEmpregadoCPFHttpGetIn" />
+      <wsdl:output message="tns:consultarEmpregadoCPFHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirEmpresa">
+      <wsdl:input message="tns:incluirEmpresaHttpGetIn" />
+      <wsdl:output message="tns:incluirEmpresaHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="FIATDRHHttpPost">
+    <wsdl:operation name="incluirEmpregado">
+      <wsdl:input message="tns:incluirEmpregadoHttpPostIn" />
+      <wsdl:output message="tns:incluirEmpregadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpresas">
+      <wsdl:input message="tns:consultarEmpresasHttpPostIn" />
+      <wsdl:output message="tns:consultarEmpresasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirEmpenho">
+      <wsdl:input message="tns:incluirEmpenhoHttpPostIn" />
+      <wsdl:output message="tns:incluirEmpenhoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="excluirEmpenho">
+      <wsdl:input message="tns:excluirEmpenhoHttpPostIn" />
+      <wsdl:output message="tns:excluirEmpenhoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpenhos">
+      <wsdl:input message="tns:consultarEmpenhosHttpPostIn" />
+      <wsdl:output message="tns:consultarEmpenhosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpregado">
+      <wsdl:input message="tns:consultarEmpregadoHttpPostIn" />
+      <wsdl:output message="tns:consultarEmpregadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpregadoCPF">
+      <wsdl:input message="tns:consultarEmpregadoCPFHttpPostIn" />
+      <wsdl:output message="tns:consultarEmpregadoCPFHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirEmpresa">
+      <wsdl:input message="tns:incluirEmpresaHttpPostIn" />
+      <wsdl:output message="tns:incluirEmpresaHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FIATDRHSoap" type="tns:FIATDRHSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="incluirEmpregado">
+      <soap:operation soapAction="http://tempuri.org/incluirEmpregado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpresas">
+      <soap:operation soapAction="http://tempuri.org/consultarEmpresas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirEmpenho">
+      <soap:operation soapAction="http://tempuri.org/incluirEmpenho" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="excluirEmpenho">
+      <soap:operation soapAction="http://tempuri.org/excluirEmpenho" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpenhos">
+      <soap:operation soapAction="http://tempuri.org/consultarEmpenhos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpregado">
+      <soap:operation soapAction="http://tempuri.org/consultarEmpregado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpregadoCPF">
+      <soap:operation soapAction="http://tempuri.org/consultarEmpregadoCPF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirEmpresa">
+      <soap:operation soapAction="http://tempuri.org/incluirEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FIATDRHSoap12" type="tns:FIATDRHSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="incluirEmpregado">
+      <soap12:operation soapAction="http://tempuri.org/incluirEmpregado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpresas">
+      <soap12:operation soapAction="http://tempuri.org/consultarEmpresas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirEmpenho">
+      <soap12:operation soapAction="http://tempuri.org/incluirEmpenho" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="excluirEmpenho">
+      <soap12:operation soapAction="http://tempuri.org/excluirEmpenho" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpenhos">
+      <soap12:operation soapAction="http://tempuri.org/consultarEmpenhos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpregado">
+      <soap12:operation soapAction="http://tempuri.org/consultarEmpregado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpregadoCPF">
+      <soap12:operation soapAction="http://tempuri.org/consultarEmpregadoCPF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/incluirEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FIATDRHHttpGet" type="tns:FIATDRHHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="incluirEmpregado">
+      <http:operation location="/incluirEmpregado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpresas">
+      <http:operation location="/consultarEmpresas" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirEmpenho">
+      <http:operation location="/incluirEmpenho" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="excluirEmpenho">
+      <http:operation location="/excluirEmpenho" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpenhos">
+      <http:operation location="/consultarEmpenhos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpregado">
+      <http:operation location="/consultarEmpregado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpregadoCPF">
+      <http:operation location="/consultarEmpregadoCPF" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirEmpresa">
+      <http:operation location="/incluirEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FIATDRHHttpPost" type="tns:FIATDRHHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="incluirEmpregado">
+      <http:operation location="/incluirEmpregado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpresas">
+      <http:operation location="/consultarEmpresas" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirEmpenho">
+      <http:operation location="/incluirEmpenho" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="excluirEmpenho">
+      <http:operation location="/excluirEmpenho" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpenhos">
+      <http:operation location="/consultarEmpenhos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpregado">
+      <http:operation location="/consultarEmpregado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEmpregadoCPF">
+      <http:operation location="/consultarEmpregadoCPF" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirEmpresa">
+      <http:operation location="/incluirEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FIATDRH">
+    <wsdl:port name="FIATDRHSoap" binding="tns:FIATDRHSoap">
+      <soap:address location="http://gestaofrota.fiasa.com.br/FIATDRH/FIATDRH.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FIATDRHSoap12" binding="tns:FIATDRHSoap12">
+      <soap12:address location="http://gestaofrota.fiasa.com.br/FIATDRH/FIATDRH.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FIATDRHHttpGet" binding="tns:FIATDRHHttpGet">
+      <http:address location="http://gestaofrota.fiasa.com.br/FIATDRH/FIATDRH.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FIATDRHHttpPost" binding="tns:FIATDRHHttpPost">
+      <http:address location="http://gestaofrota.fiasa.com.br/FIATDRH/FIATDRH.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

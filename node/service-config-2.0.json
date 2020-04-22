@@ -1,0 +1,64 @@
+{
+    "listenPort": 7000,
+    "rootPath": ".",
+    "database": {
+        "host": "localhost",
+        "user": "user",
+        "database": "b2erhdb",
+        "password": "123456",
+        "port": "3310"
+    },
+    "fca": {
+        "drh": {
+            "protocol": "http",
+            "host": "187.0.245.55",
+            "empregadoPath": "/FIATDRH/FIATDRH.asmx/consultarEmpregadoCPF"
+        },
+        "security": {
+            "protocol": "http",
+            "host": "security.fcalatam.com.br",
+            "authPath": "/service/security/auth",
+            "userPath": "/service/security/user"
+        },
+        "peopleApi": {
+            "protocol": "http",
+            "host": "localhost",
+            "employeesPath": "/employees/byfilter/?publicid="
+        }
+    },
+    "aws": { 
+        "user": "b2e-user",
+        "region": "us-west-2",
+        "accessKeyId": "AKIAJHK62MDVL7SL23QA",
+        "secretAccessKey": "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",
+        "sns": {
+            "topicAllARN": "arn:aws:sns:us-west-2:425239975565:fca_all"
+        },
+        "s3": {
+            "bucket": "fcab2e-wa-hml",
+            "serverSideEncryption": "AES256"
+        }
+    },
+    "jwt": { 
+        "fcaSecret": "12345678901234567890123456789012",
+        "b2eSecret": "12345678901234567890123456789012"
+    },
+    "logger": {
+        "file": {
+            "level": "info",
+            "timestamp": true,
+            "outputDir": "./logs",
+            "json": false, 
+            "prettyPrint": true 
+        }
+    },
+    "accessLogger": {
+        "msg": "HTTP {{req.method}} - {{res.statusCode}} - {{req.url}} ({{res.responseTime}}ms)",
+        "file": {
+            "timestamp": true,
+            "json": false,
+            "prettyPrint": true,
+            "outputDir": "./logs"
+        }
+    }
+}

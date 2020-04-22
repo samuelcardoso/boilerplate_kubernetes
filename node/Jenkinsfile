@@ -1,0 +1,49 @@
+def vars = {}
+
+node('java-build-tools') {
+	stage('Preparation') {
+	    checkout scm
+
+	    vars.DATE = sh( script: 'date +%Y-%m-%d-%H%M', returnStdout: true ).trim()
+	    vars.BRANCH_NAME = env.BRANCH_NAME
+	    vars.GIT_REVISION = sh( script: 'git rev-parse --short HEAD', returnStdout: true ).trim()
+
+		echo "===> Changeset from ${vars.BRANCH_NAME} commit ${vars.GIT_REVISION} on ${vars.DATE}"
+	}
+
+	stage('Build') {
+		try {
+			sh """
+				export DB_HOST=\$(ip route list scope global | cut -d' ' -f3)
+				docker run --name b2e-rh-test-mysql -e MYSQL_DATABASE=b2erhdb -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_USER=user -e MYSQL_PASSWORD=123456 -d -p 3310:3306 mysql/mysql-server:latest
+				npm install
+				npm run build
+				docker build -t b2e-backend .
+				find . -type f
+			"""
+		} finally {
+			sh """
+				docker rm -f b2e-rh-test-mysql
+			"""
+		}
+	}
+
+	withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-app-b2e-automation', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+
+		stage('Publish') {
+				sh """
+					mkdir -p $HOME/.aws
+					echo "[default]" > $HOME/.aws/config
+					echo "aws_access_key_id=$AWS_ACCESS_KEY_ID" >> $HOME/.aws/config
+					echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> $HOME/.aws/config
+					echo "region=us-east-1" >> $HOME/.aws/config
+					echo "output=json" >> $HOME/.aws/config
+
+					\$(aws ecr get-login --region us-east-1)
+
+					docker tag b2e-backend:latest 253882794486.dkr.ecr.us-east-1.amazonaws.com/b2e-rh-backend:${vars.DATE}
+					docker push 253882794486.dkr.ecr.us-east-1.amazonaws.com/b2e-rh-backend:${vars.DATE}
+		   """
+		}
+	}
+}

@@ -1,0 +1,5 @@
+apps:
+  - script   : 'dist/app.js'
+    name     : 'B2E-BACKEND'
+    exec_mode: 'cluster'
+    instances: 1

@@ -1,0 +1,6 @@
+NPM
+Node Package Manager
+
+Express (HTTP)
+Servidor de Aplicação
+
