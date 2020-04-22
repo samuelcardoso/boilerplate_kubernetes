@@ -1,14 +1,10 @@
-'use strict';
 import { BasicModel } from './basic.model';
-import { Path, GET, POST, DELETE, PUT, PathParam, Errors, Return, HeaderParam, ServiceContext, Context } from 'typescript-rest';
+import { Path, GET, POST, DELETE, PUT, PathParam, Return, HeaderParam, ServiceContext, Context } from 'typescript-rest';
 import { BasicService } from './basic.service';
-import { ValidationError, UnauthorizedError } from '../error/errors';
 import * as Joi from 'joi';
 import { Inject } from 'typescript-ioc';
-import { UsuarioService } from '../service/usuario.service';
 import { JWTUtils } from '../util/jwt.utils';
-import { SegurancaB2EDTO, PermissaoB2EDTO } from '../dto/seguranca/seguranca_b2e.dto';
-import * as swagger from 'typescript-rest-swagger';
+import { ValidationError } from '../util/errors';
 
 export enum CRUDTYPE {
     CREATE,
@@ -23,7 +19,7 @@ export abstract class BasicEndpoint<T extends BasicModel> {
     }
 
     @HeaderParam('Authorization')
-    public b2eToken: string;
+    public token: string;
 
     @Inject
     jwtUtils: JWTUtils;
@@ -31,150 +27,41 @@ export abstract class BasicEndpoint<T extends BasicModel> {
     @Context
     context: ServiceContext;
 
-    @Inject
-    protected usuarioService: UsuarioService;
-
     protected abstract getValidationSchema(crudType: CRUDTYPE): Joi.Schema;
 
+    @GET
+    @Path('/all')
     protected list(): Promise<Array<T>> {
-        return new Promise<Array<T>>((resolve, reject) => {
-            this.getToken().then((segurancaB2EDTO) => {
-                resolve(this.service.findByFilter(segurancaB2EDTO));
-            }).catch(reject);
-        });
+        // objToken = this.jwtUtils.decodeJWE(this.token);
+        // return new Promise<Array<T>>((resolve, reject) => {
+        // });
+        return Promise.resolve([]);
     }
 
     @POST
-    @swagger.Security('b2eSecurity')
     protected save(entity: T): Promise<Return.NewResource<number>> {
-        return new Promise<Return.NewResource<number>>((resolve, reject) => {
-            this.getToken().then((segurancaB2EDTO) => {
-                this.validaPermissao(segurancaB2EDTO, CRUDTYPE.CREATE)
-                    .then(() => {
-                        this.validaEntidade(entity, CRUDTYPE.CREATE)
-                            .then(() => {
-                                this.service.save(segurancaB2EDTO, entity)
-                                    .then(() => resolve(new Return.NewResource(`apis/${entity.id}`, entity.id)))
-                                    .catch((err) => {
-                                        return reject (new Errors.ForbidenError(err));
-                                    });
-                            }).catch(reject);
-                    }).catch(err => {
-                        return reject(new Errors.UnauthorizedError(err));
-                    });
-            }).catch(reject);
-        });
+        return Promise.resolve(new Return.NewResource('/', 1));
     }
 
     @PUT
-    @swagger.Security('b2eSecurity')
     @Path('/:id')
     protected update( @PathParam('id') id: number, entity: T): Promise<void> {
-        return new Promise<void>((resolve, reject) => {
-            this.getToken().then((segurancaB2EDTO) => {
-                this.validaPermissao(segurancaB2EDTO, CRUDTYPE.UPDATE)
-                    .then(() => {
-                        this.validaEntidade(entity, CRUDTYPE.UPDATE)
-                            .then(() => {
-                                this.service.update(segurancaB2EDTO, entity, id)
-                                    .then(() => resolve())
-                                    .catch((err) => {
-                                        return reject (new Errors.ForbidenError(err));
-                                    });
-                            }).catch(reject);
-                    }).catch(err => {
-                        return reject(new Errors.UnauthorizedError(err));
-                    });
-            }).catch(reject);
-        });
+        return Promise.resolve();
     }
 
     @DELETE
-    @swagger.Security('b2eSecurity')
     @Path('/:id')
     protected remove( @PathParam('id') id: number): Promise<void> {
-        return new Promise<void>((resolve, reject) => {
-            this.getToken().then((segurancaB2EDTO) => {
-                this.service.get(segurancaB2EDTO, id)
-                    .then(entity => {
-                        this.validaPermissao(segurancaB2EDTO, CRUDTYPE.DELETE)
-                            .then(() => {
-                                this.service.remove(segurancaB2EDTO, id)
-                                    .then(() => resolve())
-                                    .catch((err) => {
-                                        return reject (new Errors.ForbidenError(err));
-                                    });
-                            }).catch(err => {
-                                return reject(new Errors.UnauthorizedError(err));
-                            });
-                    });
-            }).catch(reject);
-        });
+        return Promise.resolve();
     }
 
     @GET
-    @swagger.Security('b2eSecurity')
-    @Path('get/:id')
+    @Path(':id')
     protected get( @PathParam('id') id: number): Promise<T> {
-        return new Promise((resolve, reject) => {
-            this.getToken().then((segurancaB2EDTO) => {
-                this.service.get(segurancaB2EDTO, id)
-                    .then(entity => {
-                        this.validaPermissao(segurancaB2EDTO, CRUDTYPE.READ)
-                            .then(() => resolve(entity))
-                            .catch(err => {
-                                return reject(new Errors.UnauthorizedError(err));
-                            });
-                    }).catch((err) => {
-                        return reject (new Errors.ForbidenError(err));
-                    });
-            }).catch(reject);
-        });
+        return Promise.resolve(<any>{});
     }
 
-    protected getToken(): Promise<SegurancaB2EDTO> {
-        return new Promise<SegurancaB2EDTO>((resolve, reject) => {
-            if (!this.b2eToken) {
-                return reject(new UnauthorizedError());
-            }
-            let segurancaB2EDTO;
-            try {
-                segurancaB2EDTO = this.jwtUtils.decodeB2E(this.b2eToken);
-            } catch (err) {
-                return reject(new UnauthorizedError());
-            }
-            return resolve(segurancaB2EDTO);
-        });
-    }
-
-    protected validaPermissao(segurancaB2EDTO: SegurancaB2EDTO, crudType: CRUDTYPE): Promise<void> {
-        return new Promise<void>((resolve, reject) => {
-
-            if (crudType === CRUDTYPE.READ_ALL || crudType === CRUDTYPE.READ) {
-                return resolve();
-            }
-
-            if (segurancaB2EDTO.isBackOffice && segurancaB2EDTO.isAdministradorGeral) {
-                return resolve();
-            }
-
-            if (!segurancaB2EDTO.adminPermissoes) {
-                return reject(new UnauthorizedError());
-            }
-
-            if (!this.validaPermissaoAdm(segurancaB2EDTO.adminPermissoes)) {
-                return reject(new UnauthorizedError());
-            }
-
-            return resolve();
-        });
-    }
-
-    protected validaPermissaoAdm(adminPermissoes?: PermissaoB2EDTO[]): boolean {
-        return false;
-    }
-
-    protected validaEntidade(entity: T, crudType: CRUDTYPE): Promise<T> {
+    protected validateEntity(entity: T, crudType: CRUDTYPE): Promise<T> {
         const schema: Joi.Schema = this.getValidationSchema(crudType);
 
         return new Promise((resolve, reject) => {

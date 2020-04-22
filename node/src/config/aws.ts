@@ -1,7 +1,5 @@
-'use strict';
-
 import * as Joi from 'joi';
-import {ValidationError} from '../error/errors';
+import { ValidationError } from '../util/errors';
 
 export interface AWSConfig {
     accessKeyId: string;

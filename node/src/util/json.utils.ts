@@ -1,5 +1,3 @@
-'use strict';
-
 export class JSONUtils {
     public static merge(source1: any, source2: any): any {
         /*

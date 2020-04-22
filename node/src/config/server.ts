@@ -1,12 +1,9 @@
-'use strict';
-
 import * as Joi from 'joi';
 import {LoggerConfig, AccessLoggerConfig, accessLoggerConfigSchema, loggerConfigSchema} from './logger';
 import {DatabaseConfig, DatabaseConfigValidatorSchema} from './database';
-import {ValidationError} from '../error/errors';
 import { AWSConfig, AWSConfigValidatorSchema } from './aws';
 import { JWTConfig, JWTConfigValidatorSchema } from './jwt';
-import { FCAConfig, FCAConfigValidatorSchema } from './fca';
+import { ValidationError } from '../util/errors';
 
 /**
  * The API config descriptor.
@@ -20,10 +17,6 @@ export interface ServiceConfig {
      * Configurations for JWT Authentication.
      */
     jwt: JWTConfig;
-    /**
-     * Configurations for FCA.
-     */
-    fca: FCAConfig;
     /**
      * Configurations for AWS.
      */
@@ -53,7 +46,6 @@ export interface ServiceConfig {
 export let ServiceConfigValidatorSchema = Joi.object().keys({
     accessLogger: accessLoggerConfigSchema,
     apiVersion: Joi.string(),
-    fca: FCAConfigValidatorSchema.required(),
     aws: AWSConfigValidatorSchema.required(),
     database: DatabaseConfigValidatorSchema.required(),
     jwt: JWTConfigValidatorSchema.required(),

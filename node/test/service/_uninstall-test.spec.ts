@@ -1,5 +1,3 @@
-'use strict';
-
 // tslint:disable:no-unused-expression
 // tslint:disable:no-console
 

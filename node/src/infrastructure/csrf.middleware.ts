@@ -1,5 +1,3 @@
-'use strict';
-
 import * as express from 'express';
 
 export function csrfMiddleware(request: express.Request, response: express.Response, next: express.NextFunction) {

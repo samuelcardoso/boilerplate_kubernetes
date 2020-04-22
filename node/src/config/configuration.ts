@@ -1,20 +1,16 @@
-'use strict';
-
 import * as fs from 'fs-extra';
 import * as _ from 'lodash';
 import * as path from 'path';
 
-import {ServiceConfig, validateServiceConfig} from './server';
-import {DatabaseConfig} from './database';
+import { ServiceConfig, validateServiceConfig } from './server';
+import { DatabaseConfig } from './database';
 import { LoggerConfig, AccessLoggerConfig } from './logger';
-import { AutoWired, Singleton } from 'typescript-ioc';
+import { Singleton } from 'typescript-ioc';
 import { AWSConfig } from './aws';
 import { JWTConfig } from './jwt';
-import { FCAConfig } from './fca';
 const request = require('request');
 
 @Singleton
-@AutoWired
 export class Configuration {
     private static config: ServiceConfig;
 
@@ -39,11 +35,6 @@ export class Configuration {
         return Configuration.config.aws;
     }
 
-    get fca(): FCAConfig {
-        this.validateSettingsLoaded();
-        return Configuration.config.fca;
-    }
-
     get database(): DatabaseConfig {
         this.validateSettingsLoaded();
         return Configuration.config.database;
@@ -63,11 +54,11 @@ export class Configuration {
         return new Promise<void>((resolve, reject) => {
             if(!agentConfigFileOrPath) {
                 agentConfigFileOrPath = (
-                    process.env.CONFIG_PATH ? (process.env.CONFIG_PATH + 'service-config-2.0.json')
-                    : path.join(process.cwd(),'service-config-2.0.json'));
+                    process.env.CONFIG_PATH ? (process.env.CONFIG_PATH + 'service-config.json')
+                    : path.join(process.cwd(),'service-config.json'));
             }
             // tslint:disable:no-console
-            console.log(`Tentando carregar o arquivo de configuração de: ${agentConfigFileOrPath}`);
+            console.log(`Trying to load configurations from: ${agentConfigFileOrPath}`);
             // tslint:enable:no-console
 
             if(process.env.CONFIG_PATH) {
@@ -98,15 +89,6 @@ export class Configuration {
             try {
                 const serviceConfig: ServiceConfig = validateServiceConfig(config);
                 Configuration.config = serviceConfig;
-
-                // serviceConfig = _.defaults(serviceConfig, {
-                //     rootPath : path.dirname(configFileName),
-                // });
-
-                // if (_.startsWith(serviceConfig.rootPath, '.')) {
-                //     serviceConfig.rootPath = path.join(path.dirname(configFileName), serviceConfig.rootPath);
-                // }
-
                 return resolve();
             } catch(err) {
                 return reject(err);

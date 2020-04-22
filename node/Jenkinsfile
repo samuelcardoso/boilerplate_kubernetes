@@ -15,20 +15,20 @@ node('java-build-tools') {
 		try {
 			sh """
 				export DB_HOST=\$(ip route list scope global | cut -d' ' -f3)
-				docker run --name b2e-rh-test-mysql -e MYSQL_DATABASE=b2erhdb -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_USER=user -e MYSQL_PASSWORD=123456 -d -p 3310:3306 mysql/mysql-server:latest
+				docker run --name sample-test-mysql -e MYSQL_DATABASE=sampledb -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_USER=user -e MYSQL_PASSWORD=123456 -d -p 3310:3306 mysql/mysql-server:latest
 				npm install
 				npm run build
-				docker build -t b2e-backend .
+				docker build -t sample-backend .
 				find . -type f
 			"""
 		} finally {
 			sh """
-				docker rm -f b2e-rh-test-mysql
+				docker rm -f sample-test-mysql
 			"""
 		}
 	}
 
-	withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-app-b2e-automation', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+	withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-app-sample-automation', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
 
 		stage('Publish') {
 				sh """
@@ -41,8 +41,8 @@ node('java-build-tools') {
 
 					\$(aws ecr get-login --region us-east-1)
 
-					docker tag b2e-backend:latest 253882794486.dkr.ecr.us-east-1.amazonaws.com/b2e-rh-backend:${vars.DATE}
-					docker push 253882794486.dkr.ecr.us-east-1.amazonaws.com/b2e-rh-backend:${vars.DATE}
+					docker tag sample-backend:latest 253882794486.dkr.ecr.us-east-1.amazonaws.com/sample-backend:${vars.DATE}
+					docker push 253882794486.dkr.ecr.us-east-1.amazonaws.com/sample-backend:${vars.DATE}
 		   """
 		}
 	}

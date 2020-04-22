@@ -1,7 +1,5 @@
-'use strict';
-
-import { HttpError } from 'typescript-rest';
 import * as express from 'express';
+import { HttpError } from 'typescript-rest/dist/server/model/errors';
 
 export function errorHandlerMiddleware(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
   if (err instanceof HttpError) {

@@ -1,0 +1,45 @@
+{
+    "listenPort": 7000,
+    "rootPath": ".",
+    "database": {
+        "host": "localhost",
+        "user": "user",
+        "database": "sampledb",
+        "password": "123456",
+        "port": "3310"
+    },
+    "aws": { 
+        "user": "sample-user",
+        "region": "us-west-2",
+        "accessKeyId": "AKIAJHK62MDVL7SL23QA",
+        "secretAccessKey": "R/U4R4UiMYDkkCotF0SBJDf+N4e4vZkMF+pDTV+t",
+        "sns": {
+            "topicAllARN": "arn:aws:sns:us-west-2:425239975565:fca_all"
+        },
+        "s3": {
+            "bucket": "secret-hml",
+            "serverSideEncryption": "AES256"
+        }
+    },
+    "jwt": { 
+        "secret": "12345678901234567890123456789012"
+    },
+    "logger": {
+        "file": {
+            "level": "info",
+            "timestamp": true,
+            "outputDir": "./logs",
+            "json": false, 
+            "prettyPrint": true 
+        }
+    },
+    "accessLogger": {
+        "msg": "HTTP {{req.method}} - {{res.statusCode}} - {{req.url}} ({{res.responseTime}}ms)",
+        "file": {
+            "timestamp": true,
+            "json": false,
+            "prettyPrint": true,
+            "outputDir": "./logs"
+        }
+    }
+}

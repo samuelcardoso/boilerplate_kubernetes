@@ -1,30 +1,26 @@
-'use strict';
-
 import {Container} from 'typescript-ioc';
-import {Logger} from './logger/logger';
 import {API} from './api-server';
 import { Configuration } from './config/configuration';
 
 // tslint:disable:no-console
-console.log('Iniciando a aplicação...');
-console.log('Carregando as configurações...');
+console.log('Initializing...');
+console.log('Loading configs...');
 
 let api: API = null;
 
 (<Configuration>Container.get(Configuration)).load().then(() => {
-    console.log('Configurações carregadas com sucesso.');
-    console.log('Iniciando os serviços.');
+    console.log('Configs successfully loaded.');
+    console.log('Loading services...');
 
-    const logger: Logger = Container.get(Logger);
     api = Container.get(API);
     api.start().then(() => {
-        console.log('Serviços iniciados com sucesso.');
+        console.log('Services successfully loaded.');
     }).catch((err) => {
-        logger.error(`Erro ao iniciar os serviços: ${err.message}`);
+        console.error(`Error do initialize services: ${err.message}`);
         throw err;
     });
 }).catch(err => {
-    console.log(`Erro ao carregar as configurações: ${err.message}`);
+    console.log(`Error loading configs: ${err.message}`);
     process.exit(-1);
 });
 

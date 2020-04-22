@@ -1,13 +1,11 @@
-'use strict';
-
-import { AutoWired, Inject } from 'typescript-ioc';
+import { Inject } from 'typescript-ioc';
 import { Configuration } from '../config/configuration';
-import { SegurancaB2EDTO } from '../dto/seguranca/seguranca_b2e.dto';
-import { TokenSecurityDTO } from '../external/fca/usuariofca.dto';
 const jwtSimple = require('jwt-simple');
 const nodeJose = require('node-jose');
 
-@AutoWired
+export class ObjToken {
+}
+
 export class JWTUtils {
 
     private keystore: any;
@@ -16,15 +14,15 @@ export class JWTUtils {
     private jweEncript: any;
     @Inject private config: Configuration;
 
-    public decodeB2E(token: string): SegurancaB2EDTO {
-        return jwtSimple.decode(token, this.config.jwt.b2eSecret);
+    public decodeJWE(token: string): ObjToken {
+        return jwtSimple.decode(token, this.config.jwt.secret);
     }
 
-    public encodeB2E(usuarioFCADTO: SegurancaB2EDTO): string {
-        return jwtSimple.encode(usuarioFCADTO, this.config.jwt.b2eSecret);
+    public encodeJWE(usuarioFCADTO: ObjToken): string {
+        return jwtSimple.encode(usuarioFCADTO, this.config.jwt.secret);
     }
 
-    public async decodeFCA(token: string): Promise<TokenSecurityDTO> {
+    public async decodeJWS(token: string): Promise<ObjToken> {
         if (token && token.startsWith('Bearer ')) {
             token = token.substring(7);
         }
@@ -38,7 +36,7 @@ export class JWTUtils {
         throw new Error('Invalid payload for JWT token');
     }
 
-    public async encodeFCA(jwtDTO: TokenSecurityDTO): Promise<string> {
+    public async encodeJWS(jwtDTO: ObjToken): Promise<string> {
         const jwtEncript = await this.getJweEncript();
         const result: any = await jwtEncript.update(JSON.stringify(jwtDTO)).final();
         if (result) {
@@ -53,7 +51,7 @@ export class JWTUtils {
             await this.keystore.add({
                 kty: 'oct',
                 kid: 'SecurityKey',
-                k: nodeJose.util.base64url.encode(this.config.jwt.fcaSecret)
+                k: nodeJose.util.base64url.encode(this.config.jwt.secret)
             });
         }
         return this.keystore;

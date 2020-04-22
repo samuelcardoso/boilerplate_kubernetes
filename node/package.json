@@ -1,18 +1,17 @@
 {
-  "name": "b2e-rh-backend",
+  "name": "sample-backend",
   "version": "1.0.0",
-  "description": "App RH",
-  "author": "Samuel Almeida Cardoso <samuel.cardoso@triggolabs.com>",
+  "description": "App Backend",
+  "author": "Samuel Almeida Cardoso",
   "keywords": [
-    "B2E",
-    "App RH"
+    "Sample"
   ],
   "main": "./dist/app.js",
-  "typings": "./dist/b2e-rh-backend.d.ts",
+  "typings": "./dist/sample-backend.d.ts",
   "scripts": {
-    "start": "node dist/app.js",
+    "build": "npm run clean && tsc && npm run swagger",
     "start:docker": "pm2-docker ./process.yml",
-    "build": "npm run clean && tsc && npm run swagger && copyfiles -f -u 1 './src/assets/*' './dist/assets'",
+    "start": "npm run build && node dist/app.js",
     "clean": "rimraf dist",
     "lint": "tslint ./src/**/*.ts ./test/**/*.ts",
     "format": "tsfmt -r",
@@ -55,30 +54,23 @@
     "form-data": "^2.1.4",
     "fs-extra": "^2.1.2",
     "fs-extra-promise": "^1.0.1",
-    "html-pdf": "^2.2.0",
-    "html-to-xlsx": "^0.6.8",
     "joi": "^10.2.2",
     "jwt-simple": "^0.5.1",
     "lodash": "^4.17.4",
     "multer": "^1.3.0",
-    "mysql": "latest",
     "node-jose": "^0.10.0",
     "path": "^0.12.7",
     "pm2": "^2.6.1",
-    "read-last-lines": "^1.2.0",
     "reflect-metadata": "^0.1.10",
     "request": "^2.81.0",
-    "sanitize-html": "^1.14.1",
     "simple-xml2json": "^1.2.3",
-    "soap": "^0.19.2",
     "stream-to-buffer": "^0.1.0",
     "style-loader": "^0.17.0",
     "swagger-client": "^3.0.9",
     "swagger-ui-express": "^1.0.7",
-    "typeorm": "0.1.19",
-    "typescript-ioc": "^0.4.1",
-    "typescript-rest": "^1.0.3",
-    "typescript-rest-swagger": "0.0.8",
+    "typescript-ioc": "^3.2.1",
+    "typescript-rest": "^3.0.1",
+    "typescript-rest-swagger": "^1.1.1",
     "winston": "^2.3.1",
     "witch": "^1.0.3"
   },
@@ -99,7 +91,6 @@
     "@types/lodash": "^4.14.62",
     "@types/mocha": "^2.2.41",
     "@types/multer": "0.0.32",
-    "@types/mysql": "0.0.33",
     "@types/node": "^7.0.27",
     "@types/request": "0.0.32",
     "@types/serve-static": "^1.7.31",
@@ -118,19 +109,9 @@
     "source-map-support": "^0.4.14",
     "ts-node": "^3.0.2",
     "tslint": "^5.1.0",
-    "typedoc": "^0.7.1",
-    "typescript": "2.8.1",
+    "typedoc": "^0.17.4",
+    "typescript": "^3.8.3",
     "typescript-formatter": "^5.1.3"
-  },
-  "resolutions": {
-    "@types/bluebird": "3.5.21"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://bitbucket.org/fcagil/b2e-backend.git"
-  },
-  "bugs": {
-    "url": "https://bitbucket.org/fcagil/b2e-backend/issues"
   },
   "directories": {
     "lib": "dist",

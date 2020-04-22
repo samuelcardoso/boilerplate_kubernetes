@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-'use strict';
-
 import * as cluster from 'cluster';
 import * as os from 'os';
 import { API } from './api-server';

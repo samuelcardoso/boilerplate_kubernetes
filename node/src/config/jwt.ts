@@ -1,16 +1,12 @@
-'use strict';
-
 import * as Joi from 'joi';
-import {ValidationError} from '../error/errors';
+import { ValidationError } from '../util/errors';
 
 export interface JWTConfig {
-    fcaSecret: string;
-    b2eSecret: string;
+    secret: string;
 }
 
 export let JWTConfigValidatorSchema = Joi.object().keys({
-    b2eSecret: Joi.string().required(),
-    fcaSecret: Joi.string().required()
+    secret: Joi.string().required()
 });
 
 export function validateJWTConfig(config: JWTConfig) {

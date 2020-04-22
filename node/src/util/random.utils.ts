@@ -1,9 +1,5 @@
-'use strict';
-
-import { AutoWired } from 'typescript-ioc';
 const crypto = require('crypto');
 
-@AutoWired
 export class RandomUtils {
 
     public getRandomToken(size?: number): Promise<string> {

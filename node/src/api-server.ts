@@ -1,27 +1,22 @@
-'use strict';
-
 import * as http from 'http';
 import * as express from 'express';
 import * as compression from 'compression';
 import api from './endpoint/endpoints';
 import {Server} from 'typescript-rest';
-import {AutoWired, Inject, Singleton} from 'typescript-ioc';
+import {Inject, Singleton} from 'typescript-ioc';
 import {Logger} from './logger/logger';
 import {Configuration} from './config/configuration';
 import {AccessLogger} from './logger/express-logger';
-import { Database } from './database';
 import * as corsMiddleware from 'cors';
 import { errorHandlerMiddleware } from './infrastructure/error-handler.middleware';
 
 @Singleton
-@AutoWired
 export class API {
     @Inject private config: Configuration;
     @Inject private logger: Logger;
 
     private app: express.Application;
     private apiServer: http.Server;
-    @Inject private database: Database;
 
     getServer(): http.Server {
         return this.apiServer;
@@ -33,12 +28,8 @@ export class API {
                 .then(() => {
                     const httpServer = http.createServer(this.app);
                     this.apiServer = <http.Server>httpServer.listen(this.config.server.listenPort, () => {
-                        this.logger.info(`API escutando na porta ${this.config.server.listenPort}`);
-                        this.logger.info('Tentando se conectar ao banco de dados...');
-                        this.database.connect().then(() => {
-                            this.logger.info('Aplicação iniciada com sucesso.');
-                            resolve();
-                        }).catch(reject);
+                        this.logger.info(`API listening on port ${this.config.server.listenPort}`);
+                        resolve();
                     });
                 }).catch(reject);
         });
@@ -46,13 +37,8 @@ export class API {
 
     stop(): Promise<void> {
         return new Promise<void>((resolve, reject)=> {
-            const self = this;
             if (this.apiServer) {
                 this.apiServer.close(() => {
-                    this.database.disconnect().then(() => {
-                        self.logger.info('Aplicação interrompida');
-                        resolve();
-                    });
                 });
                 this.apiServer = null;
             } else {
@@ -61,33 +47,13 @@ export class API {
         });
     }
 
-    private async metodoBlocante() {
-        console.log('Salva no banco de dados....');
-    }
-
-
     private async initialize(): Promise<void> {
-        console.log('Primeira parte do codigo')
-        try {
-            const algumRetorno = await this.metodoBlocante();
-        } catch(err) {
-            console.log(err);
-        }
-        
-        console.log('Segunda parte do codigo')
-
-
-
-
-
-
-
         return new Promise<void>((resolve, reject) => {
             this.app = express();
             this.configureServer()
                 .then(resolve)
                 .catch((err) => {
-                    this.logger.error(`Erro configurando a API: ${err.message}\n${JSON.stringify(this.config.server)}`);
+                    this.logger.error(`Error configuring API: ${err.message}\n${JSON.stringify(this.config.server)}`);
                     reject(err);
                 });
             
@@ -118,7 +84,10 @@ export class API {
 
             this.app.use(errorHandlerMiddleware);
 
-            Server.swagger(this.app, 'dist/admin/api/swagger.yaml', 'apidocs');
+            Server.swagger(this.app, { 
+                filePath: 'dist/admin/api/swagger.json',
+                endpoint: 'apidocs'
+            });
             resolve();
         });
     }

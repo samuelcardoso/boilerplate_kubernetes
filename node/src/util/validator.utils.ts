@@ -1,4 +1,3 @@
-'use strict';
 import { Errors } from 'typescript-rest';
 const sanitizeHtml = require('sanitize-html');
 

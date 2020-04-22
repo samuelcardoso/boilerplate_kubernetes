@@ -1,15 +1,12 @@
-'use strict';
-
 import * as Winston from 'winston';
 import { LoggerConfig, LogLevel } from '../config/logger';
 import * as _ from 'lodash';
 import * as path from 'path';
 import * as fs from 'fs-extra';
-import { AutoWired, Singleton, Inject } from 'typescript-ioc';
+import { Singleton, Inject } from 'typescript-ioc';
 import { Configuration } from '../config/configuration';
 
 @Singleton
-@AutoWired
 export class Logger {
     level: LogLevel;
     winston: Winston.LoggerInstance;

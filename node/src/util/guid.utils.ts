@@ -1,5 +1,3 @@
-'use strict';
-
 export class GUIDUtils {
     public static getNewGUIDString(): string {
         const crypto = require('crypto');

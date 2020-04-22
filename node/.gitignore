@@ -3,3 +3,4 @@ dist
 coverage
 doc
 logs
+npm-debug.log

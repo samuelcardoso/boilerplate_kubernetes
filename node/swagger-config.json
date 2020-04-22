@@ -3,8 +3,8 @@
         "yaml": false,
         "outputDirectory": "./dist/admin/api",
         "entryFile": "./src/endpoint/endpoints.ts",
-        "name": "B2E Backend RH API",
-        "description": "API para o sistema B2E RH",
+        "name": "Backend API",
+        "description": "API para o backend",
         "basePath": "/",
         "securityDefinitions": {
             "b2eSecurity": {
