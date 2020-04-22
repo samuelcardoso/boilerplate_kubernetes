@@ -29,10 +29,10 @@
     "aws": { 
         "user": "b2e-user",
         "region": "us-west-2",
-        "accessKeyId": "AKIAJHK62MDVL7SL23QA",
-        "secretAccessKey": "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",
+        "accessKeyId": "",
+        "secretAccessKey": "",
         "sns": {
-            "topicAllARN": "arn:aws:sns:us-west-2:425239975565:fca_all"
+            "topicAllARN": ""
         },
         "s3": {
             "bucket": "fcab2e-wa-hml",
