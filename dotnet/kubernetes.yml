@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-kubernetes-api
+spec:
+  selector:
+    app: docker-kubernetes-api
+  ports:
+    - port: 20001
+      targetPort: 80
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-kubernetes-api
+spec:
+  #nodeName: foo-node (https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-join/)
+  replicas: 4
+  selector:
+    matchLabels:
+      app: docker-kubernetes-api
+  template:
+    metadata:
+      labels:
+        app: docker-kubernetes-api
+    spec:
+      containers:
+        - name: docker-kubernetes-api
+          image: andresoaresti/docker-kubernetes-api:1.0.0
+          ports:
+            - containerPort: 20001
+          imagePullPolicy: Always

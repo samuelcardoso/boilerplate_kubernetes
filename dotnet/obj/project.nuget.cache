@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "8FTgBn7+e/fM10fFyt88l6WwI7vLI/GhojGVtrmdQqVXiWgvpTREXJk37pK3w5G65D6pBXzmKqRFWrrwvkrRSw==",
+  "success": true,
+  "projectFilePath": "C:\\pessoal\\kubernetes\\boilerplate_kubernetes\\dotnet\\docker-api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Zup-Andre\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Zup-Andre\\.nuget\\packages\\microsoft.openapi\\1.1.4\\microsoft.openapi.1.1.4.nupkg.sha512",
+    "C:\\Users\\Zup-Andre\\.nuget\\packages\\swashbuckle.aspnetcore\\5.3.3\\swashbuckle.aspnetcore.5.3.3.nupkg.sha512",
+    "C:\\Users\\Zup-Andre\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.3.3\\swashbuckle.aspnetcore.swagger.5.3.3.nupkg.sha512",
+    "C:\\Users\\Zup-Andre\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.3.3\\swashbuckle.aspnetcore.swaggergen.5.3.3.nupkg.sha512",
+    "C:\\Users\\Zup-Andre\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.3.3\\swashbuckle.aspnetcore.swaggerui.5.3.3.nupkg.sha512"
+  ],
+  "logs": []
+}

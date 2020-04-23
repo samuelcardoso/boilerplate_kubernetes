@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\pessoal\\kubernetes\\boilerplate_kubernetes\\dotnet\\docker-api.csproj": {}
+  },
+  "projects": {
+    "C:\\pessoal\\kubernetes\\boilerplate_kubernetes\\dotnet\\docker-api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\pessoal\\kubernetes\\boilerplate_kubernetes\\dotnet\\docker-api.csproj",
+        "projectName": "docker-api",
+        "projectPath": "C:\\pessoal\\kubernetes\\boilerplate_kubernetes\\dotnet\\docker-api.csproj",
+        "packagesPath": "C:\\Users\\Zup-Andre\\.nuget\\packages\\",
+        "outputPath": "C:\\pessoal\\kubernetes\\boilerplate_kubernetes\\dotnet\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Zup-Andre\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.3.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
