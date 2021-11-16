@@ -43,7 +43,7 @@
     "instrument": true
   },
   "dependencies": {
-    "aws-sdk": "^2.75.0",
+    "aws-sdk": "^2.814.0",
     "body-parser": "^1.17.1",
     "compression": "^1.6.2",
     "cookie-parser": "^1.4.3",
