@@ -97,7 +97,7 @@
     "@types/soap": "^0.18.0",
     "@types/winston": "0.0.28",
     "chai": "^4.0.2",
-    "chai-http": "^3.0.0",
+    "chai-http": "^4.3.0",
     "copyfiles": "^1.2.0",
     "coveralls": "^2.13.1",
     "cross-env": "^4.0.0",
